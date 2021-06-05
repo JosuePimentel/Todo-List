@@ -1,0 +1,262 @@
+/*Conf. iniciais*/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', normal;
+    color: #fff;
+    transition: 0.5s;
+}
+
+body {
+    min-height: 100vh;
+    background-color: hsl(235, 21%, 11%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url(images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+body.light::after {
+    background-image: url(images/bg-desktop-light.jpg);
+}
+
+body > section.container {
+    margin-top: 70px;
+    width: 600px;
+    height: 650px;
+}
+
+/*Conf. Header*/
+body > section.container > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+body > section.container > header > h1 {
+    font-size: 2.5em;
+    letter-spacing: 15px;
+}
+
+body > section.container > header > i {
+    font-size: 30px;
+}
+
+/*Conf. News todo*/
+div.newTask {
+    width: 100%;
+    height: 60px;
+    margin: 0 0 30px;
+    border-radius: 5px;
+}
+
+div.newTask label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+div.newTask label input {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    padding-left: 20px;
+    color: hsl(234, 39%, 85%);
+    font-size: 17px;
+}
+
+/*Conf. divs Todo*/
+section.draggable {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.draggable div {
+    padding: 20px;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid hsl(237, 14%, 26%);
+    display: flex;
+    align-items: center;
+}
+
+section.draggable div i.card.completed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border: none;
+}
+
+section.draggable div i.close {
+    display: none;
+    color: hsl(233, 14%, 35%);
+}
+
+section.draggable div:hover i.close {
+    display: block;
+}
+
+section.draggable div p {
+    padding-left: 20px;
+    flex-grow: 1;
+    color: hsl(234, 39%, 85%);
+}
+
+section.draggable div.completed p {
+    text-decoration: line-through;
+}
+
+section.draggable.dark div.completed p {
+    color: hsl(233, 14%, 35%);
+}
+
+section.draggable.light div.completed p {
+    color: hsl(234, 39%, 85%);
+}
+
+/*Conf. Filters*/
+section.filter {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.233);
+    width: 100%;
+    height: 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+}
+
+section.filter p {
+    color: hsl(233, 14%, 35%);
+}
+
+section.filter p.clear:hover {
+    color: hsl(236, 33%, 92%);
+}
+
+section.filter div.filterTodo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.filter div.filterTodo p {
+    margin: 0 5px;
+}
+
+section.filter div.filterTodo p:hover {
+    color: hsl(236, 33%, 92%);
+}
+
+section.filter div.filterTodo p.select {
+    color: hsl(220, 98%, 61%);
+}
+
+/*Short Css*/
+.click {
+    cursor: pointer;
+}
+
+.circulo {
+    width: 30px;
+    height: 30px;
+    border: 2px solid hsl(233, 14%, 35%);
+    border-radius: 50%;
+}
+
+/*JS*/
+
+.dark {
+    background-color: hsl(235, 24%, 19%);
+}
+
+.light {
+    background-color: hsl(0, 0%, 98%);
+}
+
+div.newTask.light label input {
+    color: hsl(235, 19%, 35%);
+}
+
+section.draggable.light div p {
+    color: hsl(235, 19%, 35%);
+}
+
+section.draggable.light div {
+    border-bottom: 1px solid hsl(236, 33%, 92%);
+}
+
+section.filter.light p {
+    color: hsl(234, 11%, 52%)
+}
+
+section.filter.light p.clear:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+section.light div.filterTodo p:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+div.display {
+    display: none;
+}
+
+.is-dragging {
+    cursor: move;
+    opacity: 0.3;
+}
+
+/*media query*/
+
+@media (max-width: 700px) {
+    body > section.container {
+        width: 70%;
+    }
+
+    section.draggable div i.close {
+        display: block;
+    }
+}
+
+@media (max-width: 650px) {
+    section.filter div.filterTodo {
+        position: absolute;
+        bottom: -60px;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    section.draggable div {
+        font-size: 80%;
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/14cf6b8914.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js" integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="container">
+        <header>
+            <h1>TODO</h1>
+            <i class="fas fa-sun click" id="temas"></i>
+        </header>
+        <div class="newTask dark">
+            <label>
+                <i class="click circulo"></i>
+                <input type="text" placeholder="Create a new todo..." class="todo" maxlength="55">
+            </label>
+        </div>
+        <section class="draggable dark active">
+            <div class="drag active" draggable="true">
+                <i class="click circulo card" onclick="completed(this)" ></i>
+                <p>Write tasks and after drag and over to sort!</p>
+                <i class="fas fa-times close click"></i>
+            </div>
+        </section>
+        <section class="filter dark">
+            <p class="items">NA items left</p>
+            <div class="filterTodo dark">
+                <p class="select click all">All</p>
+                <p class="click ativos">Active</p>
+                <p class="click feitos">Completed</p>
+            </div>
+            <p class="clear click">Clear Completed</p>
+        </section>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
